@@ -1,19 +1,21 @@
-import {cuentaAhorro} from './cuentaAhorro.js';
-import {Cliente} from './Cliente.js'
-import {CuentaCorriente} from './CuentaCorriente.js';
-import { cuenta } from './cuenta.js';
-import { cuentaNomina } from './cuentaNomina.js';
+import {Cliente} from './Cliente.js';
+
+import { Empleado} from './empleados/Empleado.js';
+import { Director } from './empleados/director.js';
+import { Gerente } from './empleados/gerente.js';
+
+import { sistemaAutenticacion } from './sitemaAutenticacion.js';
+
+const empleado = new Empleado ('Juan Perez', '1234321', 10000);
+const gerente = new Gerente ('Pedro Rivas', '567432', 12000);
+//const director = new Director ('Elena Moreno', '987656789', 15000);
+
+    empleado.asignarClave('12345');
+    gerente.asignarClave('12345');
+
+    console.log(sistemaAutenticacion.login(empleado, '12345')); 
+    console.log(sistemaAutenticacion.login(gerente, '12345')); 
 
 const cliente = new Cliente('Leonardo','13804050','123224');
-const cliente2 = new Cliente('María','16979808','8989');
-
-const cuentaDeLeonardo = new CuentaCorriente(cliente, '1', '001');
-const cuentaDeMaria = new CuentaCorriente(cliente2,'2','002');
-
-const cuentaAhorroLeonardo = new cuentaAhorro(cliente, '9985', '001', 0);
-
-const cuentaNominaLeonardo = new cuentaNomina (cliente, '9854', '001', 100);
-cuentaNominaLeonardo.depositoEnCuenta(150);
-    console.log(cuentaNominaLeonardo.verSaldo())
-    cuentaNominaLeonardo.retirarDeCuenta(50);
-    console.log(cuentaNominaLeonardo.verSaldo())
+cliente.asignarClave('01111');
+console.log(sistemaAutenticacion.login(cliente, '01111'));
