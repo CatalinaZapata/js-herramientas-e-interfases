@@ -1,6 +1,6 @@
 export class Cliente
 {
-    nombreCliente;
+    nombreCliente;//atributos
     dniCliente;
     rutCliente;
     #clave;
@@ -12,11 +12,11 @@ export class Cliente
         this.#clave = '';
     }
 
-    asignarClave(clave){
+    asignarClave(clave){//funciones
         this.#clave = clave;
     }
 
-    /*autenticable(clave){
-        return false;
-    }*/
+    autenticable(clave){
+        return true;
+    }
 }
